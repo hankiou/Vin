@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:vin/models/comment.dart';
 import 'package:vin/models/wine.dart';
 import 'package:vin/screens/winepanel/comment_list.dart';
+import 'package:vin/screens/winepanel/post_comment.dart';
 import 'package:vin/services/database.dart';
 import 'package:vin/shared/constants.dart';
 
@@ -17,9 +18,20 @@ class WinePanel extends StatelessWidget {
       child: Scaffold(
           backgroundColor: Colors.pink[100],
           appBar: AppBar(
-            title: Text('Vin'),
             backgroundColor: Colors.pink[700],
             elevation: 0.0,
+            title: Text('Vin'),
+            actions: <Widget>[
+              FlatButton.icon(
+                icon: Icon(Icons.edit),
+                label: Text('Rate', ),
+                onPressed: () {
+                  Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PostComment(wine: wine))
+                  );
+                },
+              )
+            ],
           ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -61,6 +73,7 @@ class WinePanel extends StatelessWidget {
                   ]
                 )
               ),
+              //PostComment(),
               Expanded(
                 child: StreamProvider<List<Comment>>.value(
                   value: DatabaseService().commentListforWine(wine.uid),

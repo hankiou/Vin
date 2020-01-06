@@ -17,8 +17,10 @@ class Home extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.pink[100],
         floatingActionButton: FloatingActionButton(
+          onPressed: () {},
            child: Icon(Icons.photo_camera),
            backgroundColor: Colors.pink[600],
+           
           ),
         appBar: AppBar(
           title: Text('Vin'),

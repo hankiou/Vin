@@ -14,11 +14,15 @@ class CommentList extends StatelessWidget {
 
     final comments = Provider.of<List<Comment>>(context);
 
-    return ListView.builder(
-      itemCount: comments.length,
-      itemBuilder: (context, index) {
-        return CommentItem(comment: comments[index]);
-      },
+    return Container(
+      
+      margin: EdgeInsets.only(right: 20.0, left: 20.0, bottom: 20.0),
+      child: ListView.builder(
+        itemCount: comments.length,
+        itemBuilder: (context, index) {
+          return CommentItem(comment: comments[index]);
+        },
+      ),
     );
   }
 }

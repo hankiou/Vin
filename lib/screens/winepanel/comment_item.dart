@@ -24,7 +24,7 @@ class CommentItem extends StatelessWidget {
 
 
     return Container(
-      margin: EdgeInsets.all(20.0),
+      margin: EdgeInsets.only(bottom: 20.0),
       padding: EdgeInsets.all(20.0),
       color: Colors.white,
       child: Column(

@@ -1,5 +1,7 @@
 class User{
-  final String uid;
+  String uid;
+  String nickname;
+  bool admin;
 
-  User({ this.uid });
+  User({ this.uid, this.nickname, this.admin });
 }

@@ -5,7 +5,7 @@ import 'package:vin/models/wine.dart';
 class DatabaseService {
   final CollectionReference wineCollection = Firestore.instance.collection('wines');
   final CollectionReference userCollection = Firestore.instance.collection('users');
-
+  final CollectionReference commentcCollection = Firestore.instance.collection('comments');
   List<Wine> _wineListFromSnapshot(QuerySnapshot snapshot){
     return snapshot.documents.map( (doc) {
       return Wine(
@@ -20,7 +20,7 @@ class DatabaseService {
   }
 
   Stream<List<Comment>> commentListforWine(String wine_id){
-    return Firestore.instance.collection('comments').where('wine_id', isEqualTo: wine_id)
+    return commentcCollection.where('wine_id', isEqualTo: wine_id)
       .snapshots().map(_commentListFromSnapshot);
   }
 
@@ -48,14 +48,23 @@ class DatabaseService {
     });
   }
 
-  String getNickname(String user_id){
-    
+  void postComment(Comment comment){
+    commentcCollection.add({
+        'user_id' : comment.user_id,
+        'wine_id' : comment.wine_id,
+        'statement': comment.statement,
+        'grade' : comment.grade.toString()
+      });
   }
 
- List<String> _nicknames(QuerySnapshot snapshot){
-    return snapshot.documents.map((doc) {
-      return doc['nickname'];
-    }).toList();
-  }
+//   String getNickname(String user_id){
+    
+//   }
+
+//  List<String> _nicknames(QuerySnapshot snapshot){
+//     return snapshot.documents.map((doc) {
+//       return doc['nickname'];
+//     }).toList();
+//   }
 }
 
