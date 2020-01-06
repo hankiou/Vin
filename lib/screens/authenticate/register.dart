@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vin/services/auth.dart';
+import 'package:vin/services/database.dart';
 
 class Register extends StatefulWidget {
 
@@ -17,6 +18,7 @@ class _RegisterState extends State<Register> {
 
   String email = '';
   String passwd = '';
+  String nickname = '';
   String err = '';
 
   @override
@@ -63,6 +65,17 @@ class _RegisterState extends State<Register> {
                 onChanged: (val) {
                   setState(() => passwd = val);
                 },
+                
+              ),
+              SizedBox(height: 20.0,),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Nickname',
+                ),
+                validator: (val) => val.isEmpty ? 'Please enter a nickname' : null,
+                onChanged: (val) {
+                  setState(() => nickname = val);
+                },
               ),
               SizedBox(height: 20.0,),
               RaisedButton(
@@ -76,6 +89,9 @@ class _RegisterState extends State<Register> {
                     dynamic result = await _authService.registerWithEmailAndPassword(email, passwd);
                     if(result == null){
                       setState(() => err = 'Oops, something went wrong');
+                    } else {
+                      String user_id = result.uid;
+                      DatabaseService().registerUser(user_id, nickname);
                     }
                   }
                 },

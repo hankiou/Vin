@@ -16,6 +16,10 @@ class Home extends StatelessWidget {
       value: DatabaseService().wines,
       child: Scaffold(
         backgroundColor: Colors.pink[100],
+        floatingActionButton: FloatingActionButton(
+           child: Icon(Icons.photo_camera),
+           backgroundColor: Colors.pink[600],
+          ),
         appBar: AppBar(
           title: Text('Vin'),
           backgroundColor: Colors.pink[700],
