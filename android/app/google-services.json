@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1080940822311",
+    "firebase_url": "https://vinm1-c218b.firebaseio.com",
+    "project_id": "vinm1-c218b",
+    "storage_bucket": "vinm1-c218b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080940822311:android:0c8bbc514d83e51aa1b302",
+        "android_client_info": {
+          "package_name": "com.sergueny.vin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080940822311-d10683fcv55sqr1fcqpncm79merfto5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcXWX1gGlpokgs3IxN70TN8jZM2TaIagI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080940822311-d10683fcv55sqr1fcqpncm79merfto5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
